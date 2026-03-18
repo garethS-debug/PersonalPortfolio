@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
-import { shaq, bwmap, worldmap } from '../assets';
+import { shaq, bwmap, worldmap, whiteabstract } from '../assets';
 import RotatingText from './hero/RotatingText';
 import HeroAnim from './hero anim/heroanim';
 import tram from '../assets/hero/tram.webm';
@@ -13,20 +13,10 @@ import HeroRenderTrees from '../assets/hero/Hero_Render_Trees.png';
 const Hero = () => {
   return (
     <>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
-          src={bwmap}
-          alt="world map"
-          className="w-full h-full sm:block hidden object-cover"
-        />
-      </div>
-      <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
-        <img
-          src={worldmap}
-          alt="world map"
-          className="w-full h-full sm:hidden block object-cover"
-        />
-      </div>
+      <div
+        className="scrolling-texture absolute top-0 left-0 z-0 h-[100vh] w-screen"
+        style={{ backgroundImage: `url(${whiteabstract})` }}
+      />
       <section
         className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
         sm:bg-hero bg-hero-mobile overflow-hidden">
