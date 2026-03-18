@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { shaq, bwmap, worldmap } from '../assets';
+import RotatingText from './hero/RotatingText';
+
 
 const Hero = () => {
   return (
@@ -35,7 +37,7 @@ const Hero = () => {
           </div>
 
           <div>
-            <h1
+            {/* <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
               Hi, I'm{' '}
               <span
@@ -48,7 +50,25 @@ const Hero = () => {
             <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
               Lorem ipsum dolor sit amet. <br className="sm:block hidden" />
               consectetur adipisicing elit deleniti, voluptas.
-            </p>
+            </p> */}
+
+                  <span className="rotating-line">
+        <span className="rotating-before">Crafting</span>
+        <RotatingText
+          texts={['Better', 'Digital', 'Intuitive', 'Engaging']}
+          mainClassName="rotating-hero px-2 sm:px-2 md:px-3 bg-transparent overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          staggerFrom={"last"}
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-120%" }}
+          staggerDuration={0.025}
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+          transition={{ type: "spring", damping: 30, stiffness: 400 }}
+          rotationInterval={2000}
+        />
+          <span className="rotating-after">Experiences</span>
+
+      </span>
           </div>
           <div
             className="w-screen flex flex-col items-start 
