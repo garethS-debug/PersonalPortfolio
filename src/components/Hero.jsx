@@ -107,7 +107,7 @@ const Hero = () => {
             baseImage={HeroRender}
             videoSrc={tram}
             overlayImage={HeroRenderTrees}
-            className={`absolute bottom-0 right-[8vw] sm:right-[10vw] md:right-[12vw] lg:right-[14vw] 2xl:right-[12vw] sm:h-[90vh] md:h-[70vh] xl:h-[80vh] w-[40vw]`}
+            className={`absolute top-1/2 right-[6vw] sm:right-[8vw] md:right-[10vw] lg:right-[12vw] 2xl:right-[10vw] -translate-y-1/2 sm:h-[70vh] md:h-[65vh] xl:h-[75vh] w-[36vw]`}
             videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
           />
         </div>

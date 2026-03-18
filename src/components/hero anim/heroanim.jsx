@@ -7,9 +7,31 @@ const HeroAnim = ({
   videoProps = {},
   className = '',
   style = {},
+  // optional layout props to control placement and scale (only applied when provided)
+  position,
+  top,
+  left,
+  right,
+  bottom,
+  width,
+  height,
+  scale = 1,
+  zIndex,
 }) => {
+  const layoutStyle = { ...style };
+  if (position) layoutStyle.position = position;
+  if (top) layoutStyle.top = top;
+  if (left) layoutStyle.left = left;
+  if (right) layoutStyle.right = right;
+  if (bottom) layoutStyle.bottom = bottom;
+  if (width) layoutStyle.width = width;
+  if (height) layoutStyle.height = height;
+  if (zIndex !== undefined) layoutStyle.zIndex = zIndex;
+  // apply scale without translating so className-based centering isn't disturbed
+  if (scale && scale !== 1) layoutStyle.transform = `scale(${scale})`;
+
   return (
-    <div className={`relative overflow-hidden ${className}`} style={style}>
+    <div className={`${className} overflow-hidden`} style={layoutStyle}>
       {baseImage && (
         <img
           src={baseImage}
