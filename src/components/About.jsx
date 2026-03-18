@@ -37,12 +37,7 @@ const About = () => {
       <motion.p
         variants={fadeIn('', '', 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
-        sapiente ipsum dolorum dicta eaque cumque inventore molestias, beatae ea
-        quaerat alias accusamus voluptas autem! Alias odit voluptates in totam
-        vitae dignissimos minus eaque culpa unde tempore dolore aperiam
-        obcaecati voluptatum aliquam corrupti, suscipit accusamus! Odit unde
-        veniam dolorum ipsum doloribus.
+I’m a software developer with a strong interest in building interactive, real-time experiences that blend technology, design, and problem-solving. A lot of the work I enjoy sits where software meets the real world — whether that’s UX demos, 3D environments, connected systems, or tools that help bring ideas to life. I like getting stuck into complex challenges, figuring out how all the moving parts fit together, and working closely with other people to turn rough ideas into something solid and usable.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

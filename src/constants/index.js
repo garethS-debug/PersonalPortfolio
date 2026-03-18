@@ -5,6 +5,8 @@ import {
   prototyping,
   javascript,
   typescript,
+  unity,
+  csharp,
   html,
   css,
   reactjs,
@@ -17,12 +19,6 @@ import {
   postgresql,
   rubyrails,
   graphql,
-  komikult,
-    komikult, // Moved to separate imports
-    leaderboard, // Moved to separate imports
-    math, // Moved to separate imports
-    movie, // Moved to separate imports
-    nyeusi, // Moved to separate imports
   coverhunt,
   dcc,
   kelhel,
@@ -65,12 +61,12 @@ const services = [
 
 const technologies = [
   {
-    name: 'HTML 5',
-    icon: html,
+    name: 'C#',
+    icon: csharp,
   },
   {
-    name: 'CSS 3',
-    icon: css,
+    name: 'Unity',
+    icon: unity,
   },
   {
     name: 'JavaScript',

@@ -21,10 +21,6 @@ const HeroAnim = ({
   overlayClassName = '',
   overlayStyle = {},
   overlayScale = 1,
-  // base (background) customization
-  baseClassName = '',
-  baseStyle = {},
-  baseScale = 1,
 }) => {
   const layoutStyle = { ...style };
   if (position) layoutStyle.position = position;
@@ -38,27 +34,13 @@ const HeroAnim = ({
   // apply scale without translating so className-based centering isn't disturbed
   if (scale && scale !== 1) layoutStyle.transform = `scale(${scale})`;
 
-  // Ensure the container is responsive by default
-  // do not override explicit width/height if provided
-  if (!layoutStyle.width) layoutStyle.width = '100%';
-  if (!layoutStyle.height) layoutStyle.height = layoutStyle.height || 'auto';
-  // prefer an aspect ratio so the hero scales nicely; only set if no height provided
-  if (!height && !layoutStyle.aspectRatio) layoutStyle.aspectRatio = '16/9';
-  layoutStyle.maxWidth = layoutStyle.maxWidth || '100%';
-  layoutStyle.display = layoutStyle.display || 'block';
-  layoutStyle.position = layoutStyle.position || 'relative';
-
   return (
     <div className={`${className} overflow-hidden`} style={layoutStyle}>
       {baseImage && (
         <img
           src={baseImage}
           alt="base"
-          className={`absolute inset-0 w-full h-full object-cover ${baseClassName}`}
-          style={{
-            ...(baseScale && baseScale !== 1 ? { transform: `scale(${baseScale})`, transformOrigin: 'center center' } : {}),
-            ...baseStyle,
-          }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
       )}
 
