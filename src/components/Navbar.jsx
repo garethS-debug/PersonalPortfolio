@@ -5,7 +5,7 @@ import { navLinks } from '../constants';
 import { close, menu, logo, logotext } from '../assets';
 import EnterAnimation from './logo/Logo'
 import { motion } from "motion/react"
-import NavBarButton from './NavBarButton';
+import NavBarButton from './navBar/NavBarButton';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
@@ -80,7 +80,7 @@ const Navbar = () => {
               <ul
                 className="list-none flex flex-col -gap-[1rem] 
                 items-start justify-end mt-[10rem] -ml-[35px]">
-                {/** original mobile list (commented out for reference) */}
+                {/** original mobile list */}
                 {/**
                 {navLinks.map((nav) => (
                   <li
