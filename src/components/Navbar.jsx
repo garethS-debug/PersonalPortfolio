@@ -5,7 +5,7 @@ import { navLinks } from '../constants';
 import { close, menu, logo, logotext } from '../assets';
 import EnterAnimation from './logo/Logo'
 import { motion } from "motion/react"
-
+import NavBarButton from './NavBarButton';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
@@ -43,15 +43,21 @@ const Navbar = () => {
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
           {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? 'text-french' : 'text-eerieBlack'
-              } hover:text-taupe text-[21px] font-medium font-mova 
-                uppercase tracking-[3px] cursor-pointer nav-links`}
-              onClick={() => setActive(nav.title)}>
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
+            // <li
+            //   key={nav.id}
+            //   className={`${
+            //     active === nav.title ? 'text-french' : 'text-eerieBlack'
+            //   } hover:text-taupe text-[21px] font-medium font-mova 
+            //     uppercase tracking-[3px] cursor-pointer nav-links`}
+            //   onClick={() => setActive(nav.title)}>
+            //   <a href={`#${nav.id}`}>{nav.title}</a>
+            // </li>
+             <NavBarButton
+    key={nav.id}
+    nav={nav}
+    active={active}
+    onActivate={(n) => setActive(n.title)}
+  />
           ))}
         </ul>
 
@@ -74,6 +80,8 @@ const Navbar = () => {
               <ul
                 className="list-none flex flex-col -gap-[1rem] 
                 items-start justify-end mt-[10rem] -ml-[35px]">
+                {/** original mobile list (commented out for reference) */}
+                {/**
                 {navLinks.map((nav) => (
                   <li
                     id={nav.id}
@@ -88,6 +96,20 @@ const Navbar = () => {
                     }}>
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   </li>
+                ))}
+                */}
+
+                {navLinks.map((nav) => (
+                  <NavBarButton
+                    key={nav.id}
+                    nav={nav}
+                    active={active}
+                    onActivate={(n) => {
+                      setToggle(!toggle);
+                      setActive(n.title);
+                    }}
+                    className="text-[48px] sm:text-[88px] font-bold font-arenq uppercase tracking-[1px] py-2"
+                  />
                 ))}
               </ul>
             </div>
