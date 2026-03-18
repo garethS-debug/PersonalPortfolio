@@ -22,7 +22,7 @@ import {
 
 export const FilesDemo = () => {
   return (
-    <div className="dark relative size-full border bg-background overflow-auto">
+    <div className="dark relative size-full border bg-background overflow-auto text-foreground">
       <Files className="p-3" defaultOpen={["folder-1"]}>
         <FilesHighlight className="bg-accent pointer-events-none">
           <FolderItem value="folder-1">
@@ -31,8 +31,8 @@ export const FilesDemo = () => {
                 <FolderHighlight>
                   <Folder className="flex items-center gap-2 p-2 pointer-events-none">
                     <FolderIcon
-                      closeIcon={<LucideFolderIcon className="size-4.5" />}
-                      openIcon={<FolderOpenIcon className="size-4.5" />}
+                      closeIcon={<LucideFolderIcon className="size-4.5 text-foreground" />}
+                      openIcon={<FolderOpenIcon className="size-4.5 text-foreground" />}
                     />
                     <FileLabel className="text-sm">Folder 1</FileLabel>
                   </Folder>
@@ -45,7 +45,7 @@ export const FilesDemo = () => {
                 <FileHighlight>
                   <File className="flex items-center gap-2 p-2 pointer-events-none">
                     <FileIcon>
-                      <LucideFileIcon className="size-4.5" />
+                      <LucideFileIcon className="size-4.5 text-foreground" />
                     </FileIcon>
                     <FileLabel className="text-sm">File 1</FileLabel>
                   </File>
@@ -58,10 +58,8 @@ export const FilesDemo = () => {
                         <FolderHighlight>
                           <Folder className="flex items-center gap-2 p-2 pointer-events-none">
                             <FolderIcon
-                              closeIcon={
-                                <LucideFolderIcon className="size-4.5" />
-                              }
-                              openIcon={<FolderOpenIcon className="size-4.5" />}
+                              closeIcon={<LucideFolderIcon className="size-4.5 text-foreground" />}
+                              openIcon={<FolderOpenIcon className="size-4.5 text-foreground" />}
                             />
                             <FileLabel className="text-sm">Folder 2</FileLabel>
                           </Folder>
@@ -74,7 +72,7 @@ export const FilesDemo = () => {
                         <FileHighlight>
                           <File className="flex items-center gap-2 p-2 pointer-events-none">
                             <FileIcon>
-                              <LucideFileIcon className="size-4.5" />
+                              <LucideFileIcon className="size-4.5 text-foreground" />
                             </FileIcon>
                             <FileLabel className="text-sm">File 2</FileLabel>
                           </File>
@@ -82,7 +80,7 @@ export const FilesDemo = () => {
                         <FileHighlight>
                           <File className="flex items-center gap-2 p-2 pointer-events-none">
                             <FileIcon>
-                              <LucideFileIcon className="size-4.5" />
+                              <LucideFileIcon className="size-4.5 text-foreground" />
                             </FileIcon>
                             <FileLabel className="text-sm">File 3</FileLabel>
                           </File>
@@ -94,7 +92,7 @@ export const FilesDemo = () => {
                   <FileHighlight>
                     <File className="flex items-center gap-2 p-2 pointer-events-none">
                       <FileIcon>
-                        <LucideFileIcon className="size-4.5" />
+                        <LucideFileIcon className="size-4.5 text-foreground" />
                       </FileIcon>
                       <FileLabel className="text-sm">File 4</FileLabel>
                     </File>
@@ -107,7 +105,7 @@ export const FilesDemo = () => {
           <FileHighlight>
             <File className="flex items-center gap-2 p-2 pointer-events-none">
               <FileIcon>
-                <LucideFileIcon className="size-4.5" />
+                <LucideFileIcon className="size-4.5 text-foreground" />
               </FileIcon>
               <FileLabel className="text-sm">File 5</FileLabel>
             </File>
