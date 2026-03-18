@@ -27,10 +27,7 @@ const Hero = () => {
         className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
         sm:bg-hero bg-hero-mobile overflow-hidden">
         <div
-          className={`absolute inset-0 sm:top-[250px] top-[150px] 
-          lg:top-[150px] xl:top-[250px] ${styles.paddingX} 
-          max-w-7xl mx-auto flex flex-row items-start
-          justify-between gap-3`}>
+          className={`absolute inset-0 ${styles.paddingX} max-w-7xl mx-auto flex flex-row items-center justify-between gap-3`}>
           <div className="flex flex-col justify-center items-center mt-5 ml-3">
             <div className="w-5 h-5 rounded-full bg-[#0a0a0a] sm:hidden" />
             <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
@@ -52,7 +49,7 @@ const Hero = () => {
               consectetur adipisicing elit deleniti, voluptas.
             </p> */}
 
-                  <span className="rotating-line">
+                  <span className="rotating-line relative flex items-center gap-4 justify-center">
         <span className="rotating-before">Crafting</span>
         <RotatingText
           texts={['Better', 'Digital', 'Intuitive', 'Engaging']}
