@@ -4,7 +4,7 @@ import { SectionWrapper } from '../hoc';
 import { technologies } from '../constants';
 import { styles } from '../styles';
 import { textVariant } from '../utils/motion';
-
+import FilesDemo from './filesystem/FilesDemo';
 const Tech = () => {
   return (
     <>
@@ -20,6 +20,7 @@ const Tech = () => {
           </div>
         ))}
       </div>
+           <FilesDemo />
     </>
   );
 };

@@ -9,6 +9,8 @@ import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { download, downloadHover, resume } from '../assets';
 import { textVariant } from '../utils/motion';
+import FilesDemo  from './filesystem/FilesDemo';
+import { Files } from 'lucide-react';
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -126,6 +128,8 @@ const Experience = () => {
             </button>
           </VerticalTimelineElement>
         </VerticalTimeline>
+   
+        
       </div>
     </>
   );
