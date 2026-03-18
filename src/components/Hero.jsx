@@ -4,6 +4,10 @@ import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { shaq, bwmap, worldmap } from '../assets';
 import RotatingText from './hero/RotatingText';
+import HeroAnim from './hero anim/heroanim';
+import tram from '../assets/hero/tram.webm';
+import HeroRender from '../assets/hero/Hero_Render.png';
+import HeroRenderTrees from '../assets/hero/Hero_Render_Trees.png';
 
 
 const Hero = () => {
@@ -33,7 +37,7 @@ const Hero = () => {
             <div className="w-1 sm:h-80 h-40 bw-gradient sm:hidden" />
           </div>
 
-          <div>
+          <div className="flex-1 flex items-center">
             {/* <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
               Hi, I'm{' '}
@@ -49,7 +53,7 @@ const Hero = () => {
               consectetur adipisicing elit deleniti, voluptas.
             </p> */}
 
-                  <span className="rotating-line relative flex items-center gap-4 justify-center">
+                  <span className="rotating-line relative flex items-center gap-4 justify-start max-w-[46%] pr-6 md:pr-12 lg:pr-20 xl:pr-28">
         <span className="rotating-before">Crafting</span>
         <RotatingText
           texts={['Better', 'Digital', 'Intuitive', 'Engaging']}
@@ -97,14 +101,14 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Your image comes here. Feel free to remove image if you don't plan to have one.*/}
+        {/* Hero animation: base PNG (optional) -> video -> top PNG (overlay) */}
         <div>
-          <img
-            className="absolute bottom-0 ml-[50vw] 
-            lg:ml-[75vw] md:ml-[60vw] xmd:ml-[60vw] 2xl:ml-[83vw]
-            sm:h-[90vh] md:h-[70vh] xl:h-[80vh]"
-            src={shaq}
-            alt="shaquille"
+          <HeroAnim
+            baseImage={HeroRender}
+            videoSrc={tram}
+            overlayImage={HeroRenderTrees}
+            className={`absolute bottom-0 right-[8vw] sm:right-[10vw] md:right-[12vw] lg:right-[14vw] 2xl:right-[12vw] sm:h-[90vh] md:h-[70vh] xl:h-[80vh] w-[40vw]`}
+            videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
           />
         </div>
       </section>
