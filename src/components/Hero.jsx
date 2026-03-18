@@ -13,13 +13,29 @@ import HeroRenderTrees from '../assets/hero/Hero_Render_Trees.png';
 const Hero = () => {
   return (
     <>
-      <div
-        className="scrolling-texture absolute top-0 left-0 z-0 h-[100vh] w-screen"
-        style={{ backgroundImage: `url(${whiteabstract})` }}
-      />
       <section
         className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
         sm:bg-hero bg-hero-mobile overflow-hidden">
+        {/* Original world map images (commented out so they can be restored if needed)
+        <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
+          <img
+            src={bwmap}
+            alt="world map"
+            className="w-full h-full sm:block hidden object-cover"
+          />
+        </div>
+        <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
+          <img
+            src={worldmap}
+            alt="world map"
+            className="w-full h-full sm:hidden block object-cover"
+          />
+        </div>
+        */}
+        <div
+          className="absolute inset-0 z-0 scrolling-texture"
+          style={{ backgroundImage: `url(${whiteabstract})` }}
+        />
         <div
           className={`absolute inset-0 ${styles.paddingX} max-w-7xl mx-auto flex flex-row items-center justify-between gap-3`}>
           <div className="flex flex-col justify-center items-center mt-5 ml-3">
