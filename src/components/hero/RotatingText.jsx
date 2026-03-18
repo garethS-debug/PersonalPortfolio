@@ -10,8 +10,6 @@ function cn(...classes) {
 }
 
 const RotatingText = forwardRef((props, ref) => {
-
-  console.log('RotatingText mounted, props texts:', props.texts && props.texts.slice(0,4));
   const {
     texts,
     transition = { type: 'spring', damping: 25, stiffness: 300 },
@@ -43,7 +41,6 @@ const RotatingText = forwardRef((props, ref) => {
     (async () => {
       if (document.fonts && document.fonts.ready) await document.fonts.ready;
 
-
       const measuringContainer = document.createElement('div');
       measuringContainer.style.position = 'absolute';
       measuringContainer.style.left = '-9999px';
@@ -52,12 +49,8 @@ const RotatingText = forwardRef((props, ref) => {
       document.body.appendChild(measuringContainer);
 
       let maxW = 0;
-      let maxLineW = 0;
-      const parent = rootRef.current && rootRef.current.parentElement;
-      const beforeText = parent ? (parent.querySelector('.rotating-before')?.textContent || '') : '';
 
       texts.forEach(t => {
-
         const words = (t || '').split(' ');
         const pillText = words[1] || words[0] || '';
         const span = document.createElement('span');
@@ -66,51 +59,12 @@ const RotatingText = forwardRef((props, ref) => {
         measuringContainer.appendChild(span);
         const w = Math.ceil(span.scrollWidth);
         if (w > maxW) maxW = w;
-
-
-        const wrapper = document.createElement('span');
-        wrapper.className = 'rotating-line';
-        const before = document.createElement('span');
-        before.className = 'rotating-before';
-        before.textContent = beforeText;
-        const hero = document.createElement('span');
-        hero.className = mainClassName || 'rotating-hero';
-        hero.textContent = t;
-        wrapper.appendChild(before);
-        wrapper.appendChild(hero);
-        measuringContainer.appendChild(wrapper);
-        const lw = Math.ceil(wrapper.scrollWidth);
-        if (lw > maxLineW) maxLineW = lw;
       });
 
       document.body.removeChild(measuringContainer);
       setPillWidth(maxW);
-
-
-      if (parent) {
-        parent.style.setProperty('--rotating-line-width', `${maxLineW}px`);
-
-        parent.style.minWidth = `${maxLineW}px`;
-        parent.style.width = `${maxLineW}px`;
-      }
-
-      // Position the rotating text absolutely within the parent `.rotating-line`
-      // so the pill can change size without affecting document flow.
-      const rootEl = rootRef.current;
-      const parentEl = rootEl && rootEl.parentElement;
-      if (parentEl) {
-        // measure the static "before" text if present and set a CSS variable
-        const beforeEl = parentEl.querySelector('.rotating-before');
-        const beforeW = beforeEl ? Math.ceil(beforeEl.getBoundingClientRect().width) : 0;
-        parentEl.style.setProperty('--rotating-before-width', `${beforeW}px`);
-      }
-      if (rootEl) {
-        rootEl.style.position = 'absolute';
-        rootEl.style.left = 'var(--rotating-before-width, 0px)';
-        rootEl.style.top = '0';
-      }
     })();
-  }, [texts, mainClassName]);
+  }, [texts]);
 
   const splitIntoCharacters = text => {
     if (typeof Intl !== 'undefined' && Intl.Segmenter) {
