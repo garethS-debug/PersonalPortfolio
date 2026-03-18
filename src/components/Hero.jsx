@@ -103,13 +103,21 @@ const Hero = () => {
 
         {/* Hero animation: base PNG (optional) -> video -> top PNG (overlay) */}
         <div>
-          <HeroAnim
+        {/* <HeroAnim
             baseImage={HeroRender}
             videoSrc={tram}
             overlayImage={HeroRenderTrees}
-            className={`absolute top-1/2 right-[6vw] sm:right-[8vw] md:right-[10vw] lg:right-[12vw] 2xl:right-[10vw] -translate-y-1/2 sm:h-[70vh] md:h-[65vh] xl:h-[75vh] w-[36vw]`}
-            videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
-          />
+            className="absolute top-1/2 right-[6vw] -translate-y-1/2 sm:h-[70vh] w-[36vw]"
+            baseScale={0.90}
+            baseStyle={{ transformOrigin: 'left center' }}
+            overlayScale={1.08}
+            overlayStyle={{ transformOrigin: 'left center', translate: '0 0' }}
+          /> */}
+          <HeroAnim
+  videoSrc={tram}
+  className="absolute top-1/2 right-[6vw] -translate-y-1/2 sm:h-[70vh] w-[36vw]"
+  videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
+/>
         </div>
       </section>
     </>

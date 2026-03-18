@@ -17,6 +17,14 @@ const HeroAnim = ({
   height,
   scale = 1,
   zIndex,
+  // overlay customization
+  overlayClassName = '',
+  overlayStyle = {},
+  overlayScale = 1,
+  // base (background) customization
+  baseClassName = '',
+  baseStyle = {},
+  baseScale = 1,
 }) => {
   const layoutStyle = { ...style };
   if (position) layoutStyle.position = position;
@@ -36,7 +44,11 @@ const HeroAnim = ({
         <img
           src={baseImage}
           alt="base"
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover ${baseClassName}`}
+          style={{
+            ...(baseScale && baseScale !== 1 ? { transform: `scale(${baseScale})`, transformOrigin: 'center center' } : {}),
+            ...baseStyle,
+          }}
         />
       )}
 
@@ -56,7 +68,11 @@ const HeroAnim = ({
         <img
           src={overlayImage}
           alt="overlay"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className={`absolute inset-0 w-full h-full object-cover pointer-events-none ${overlayClassName}`}
+          style={{
+            ...(overlayScale && overlayScale !== 1 ? { transform: `scale(${overlayScale})`, transformOrigin: 'center center' } : {}),
+            ...overlayStyle,
+          }}
         />
       )}
     </div>
