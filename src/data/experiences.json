@@ -1,17 +1,17 @@
 [
   {
-    "title": "Unity Developer",
-    "company_name": "Bentley Motors",
-    "icon": "bentley",
-    "iconBg": "#333333",
-    "date": "Nov 2022 - Nov 2023"
-  },
-  {
     "title": "Senior Software Developer",
     "company_name": "Bentley Motors",
     "icon": "bentley",
     "iconBg": "#333333",
     "date": "Nov 2023 - Present"
+  },
+  {
+    "title": "Unity Developer",
+    "company_name": "Bentley Motors",
+    "icon": "bentley",
+    "iconBg": "#333333",
+    "date": "Nov 2022 - Nov 2023"
   },
   {
     "title": "Unity Developer",
@@ -27,26 +27,12 @@
     "iconBg": "#333333",
     "date": "Dec 2019 - Jan 2022"
   },
-  {
-    "title": "Freelance 3D Character Artist",
-    "company_name": "Self-Employed",
-    "icon": "freelance",
+    {
+    "title": "Operations Analyst (Subject Matter Expert)",
+    "company_name": "NatWest Group",
+    "icon": "natwest",
     "iconBg": "#333333",
-    "date": "Aug 2021 - Oct 2021"
-  },
-  {
-    "title": "Alpha Tester",
-    "company_name": "Kapia (2for2)",
-    "icon": "kapia",
-    "iconBg": "#333333",
-    "date": "Jul 2020 - Dec 2020"
-  },
-  {
-    "title": "Alpha Tester",
-    "company_name": "You Suck at Parking",
-    "icon": "yousuckatparking",
-    "iconBg": "#333333",
-    "date": "Oct 2020 - Nov 2020"
+    "date": "2016 - Dec 2021"
   },
   {
     "title": "Case Officer",
@@ -54,26 +40,7 @@
     "icon": "nw",
     "iconBg": "#333333",
     "date": "2014 - 2016"
-  },
-  {
-    "title": "Expert Case Officer",
-    "company_name": "NatWest Group",
-    "icon": "natwest",
-    "iconBg": "#333333",
-    "date": "2016 - 2018"
-  },
-  {
-    "title": "Analyst",
-    "company_name": "NatWest Group",
-    "icon": "natwest",
-    "iconBg": "#333333",
-    "date": "2018 - 2020"
-  },
-  {
-    "title": "Operations Analyst (Subject Matter Expert)",
-    "company_name": "NatWest Group",
-    "icon": "natwest",
-    "iconBg": "#333333",
-    "date": "2020 - Dec 2021"
   }
+
+
 ]

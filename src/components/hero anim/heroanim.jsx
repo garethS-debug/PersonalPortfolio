@@ -47,7 +47,7 @@ const HeroAnim = ({
       {videoSrc && (
         <video
           src={videoSrc}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain object-center"
           playsInline
           autoPlay
           muted
