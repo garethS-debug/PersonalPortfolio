@@ -1,30 +1,79 @@
 [
   {
-    "title": "Front-End Developer",
-    "company_name": "Cover Hunt",
-    "icon": "coverhunt",
+    "title": "Unity Developer",
+    "company_name": "Bentley Motors",
+    "icon": "bentley",
     "iconBg": "#333333",
-    "date": "Aug 2021 - Feb 2022"
+    "date": "Nov 2022 - Nov 2023"
   },
   {
-    "title": "Mentor (Volunteer)",
-    "company_name": "Microverse",
-    "icon": "microverse",
+    "title": "Senior Software Developer",
+    "company_name": "Bentley Motors",
+    "icon": "bentley",
     "iconBg": "#333333",
-    "date": "Mar 2022 - May 2022"
+    "date": "Nov 2023 - Present"
   },
   {
-    "title": "Junior Software Engineer",
-    "company_name": "Kelhel",
-    "icon": "kelhel",
+    "title": "Unity Developer",
+    "company_name": "Head Set Immersive",
+    "icon": "head_set",
     "iconBg": "#333333",
-    "date": "May 2022 - Oct 2022"
+    "date": "Jan 2022 - Nov 2022"
   },
   {
-    "title": "Full Stack Developer",
-    "company_name": "Diversity Cyber Council",
-    "icon": "dcc",
+    "title": "Freelance Developer",
+    "company_name": "Self-Employed",
+    "icon": "freelance",
     "iconBg": "#333333",
-    "date": "Sep 2022 - Present"
+    "date": "Dec 2019 - Jan 2022"
+  },
+  {
+    "title": "Freelance 3D Character Artist",
+    "company_name": "Self-Employed",
+    "icon": "freelance",
+    "iconBg": "#333333",
+    "date": "Aug 2021 - Oct 2021"
+  },
+  {
+    "title": "Alpha Tester",
+    "company_name": "Kapia (2for2)",
+    "icon": "kapia",
+    "iconBg": "#333333",
+    "date": "Jul 2020 - Dec 2020"
+  },
+  {
+    "title": "Alpha Tester",
+    "company_name": "You Suck at Parking",
+    "icon": "yousuckatparking",
+    "iconBg": "#333333",
+    "date": "Oct 2020 - Nov 2020"
+  },
+  {
+    "title": "Case Officer",
+    "company_name": "NatWest Group",
+    "icon": "nw",
+    "iconBg": "#333333",
+    "date": "2014 - 2016"
+  },
+  {
+    "title": "Expert Case Officer",
+    "company_name": "NatWest Group",
+    "icon": "natwest",
+    "iconBg": "#333333",
+    "date": "2016 - 2018"
+  },
+  {
+    "title": "Analyst",
+    "company_name": "NatWest Group",
+    "icon": "natwest",
+    "iconBg": "#333333",
+    "date": "2018 - 2020"
+  },
+  {
+    "title": "Operations Analyst (Subject Matter Expert)",
+    "company_name": "NatWest Group",
+    "icon": "natwest",
+    "iconBg": "#333333",
+    "date": "2020 - Dec 2021"
   }
 ]
