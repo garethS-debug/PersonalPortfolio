@@ -59,12 +59,13 @@ const Hero = () => {
             </div>
 
             <div className="flex w-full justify-center lg:w-[44%] lg:justify-end xl:w-[40%]">
-              <HeroAnim
-                videoSrc={tram}
-                scale={1.75}
-                className="hero-anim-shell relative aspect-[10/13] w-full max-w-[16rem] xs:max-w-[18rem] sm:max-w-[22rem] md:max-w-[26rem] lg:max-w-none lg:w-[clamp(20rem,34vw,31rem)]"
-                videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
-              />
+                  <HeroAnim
+                    videoSrc={tram}
+                    scale={2.06}
+                    left="46%"
+                    className="hero-anim-shell relative aspect-[10/13] w-full max-w-[16rem] xs:max-w-[18rem] sm:max-w-[22rem] md:max-w-[26rem] lg:max-w-none lg:w-[clamp(20rem,34vw,31rem)]"
+                    videoProps={{ playsInline: true, autoPlay: true, muted: true, loop: true }}
+                  />
             </div>
           </div>
         </div>

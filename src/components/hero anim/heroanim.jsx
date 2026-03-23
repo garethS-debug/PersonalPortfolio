@@ -32,7 +32,10 @@ const HeroAnim = ({
   if (height) layoutStyle.height = height;
   if (zIndex !== undefined) layoutStyle.zIndex = zIndex;
   // apply scale without translating so className-based centering isn't disturbed
-  if (scale && scale !== 1) layoutStyle.transform = `scale(${scale})`;
+  if (scale && scale !== 1) {
+    layoutStyle.transform = `scale(${scale})`;
+    layoutStyle.transformOrigin = 'center center';
+  }
 
   return (
     <div className={`${className} overflow-hidden`} style={layoutStyle}>
