@@ -5,6 +5,46 @@ import { styles } from '../styles';
 import { github, pineapple, pineappleHover } from '../assets';
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
+import JobListingComponent, {
+  Resend,
+  Turso,
+  Supabase,
+} from "./smoothui/job-listing-component/JonListingComponent";
+
+const jobs = [
+  {
+    company: "Resend",
+    title: "Senior Frontend Engineer",
+    logo: <Resend className="w-10 h-10" />,
+    job_description: "Build and scale the React dashboard...",
+    salary: "$120k - $180k",
+    location: "San Francisco",
+    remote: "Hybrid",
+    job_time: "Full-time",
+  },
+  {
+    company: "Turso",
+    title: "Backend Developer",
+    logo: <Turso className="w-10 h-10" />,
+    job_description: "Work on edge DB systems...",
+    salary: "$100k - $150k",
+    location: "Remote",
+    remote: "Yes",
+    job_time: "Full-time",
+  },
+  {
+    company: "Supabase",
+    title: "Developer Advocate",
+    logo: <Supabase className="w-10 h-10" />,
+    job_description: "Create content and speak at events...",
+    salary: "$90k - $130k",
+    location: "Remote",
+    remote: "Yes",
+    job_time: "Full-time",
+  },
+];
+
+
 
 const ProjectCard = ({
   id,
@@ -132,7 +172,13 @@ const Projects = () => {
         </motion.p>
       </div>
 
-      <motion.div
+                {/* Job listings */}
+        <div className="mt-12 w-full">
+          <h3 className="text-sm text-taupe mb-4">Open Roles</h3>
+          <JobListingComponent jobs={jobs} className="mt-4" onJobClick={(j) => console.log('job clicked', j)} />
+        </div>
+
+      {/* <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
@@ -149,8 +195,11 @@ const Projects = () => {
             />
           ))}
         </div>
-      </motion.div>
+
+
+      </motion.div> */}
     </div>
+    
   );
 };
 
