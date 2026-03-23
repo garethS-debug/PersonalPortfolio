@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion as SmoothMotion, useReducedMotion } from "motion/react";
 import { useOnClickOutside } from "usehooks-ts";
+import Phototab from './phototab/Phototab.jsx';
 
 export const Resend = (props) => (
   <svg fill="none" height="1em" viewBox="0 0 600 600" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -61,20 +62,20 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
       <AnimatePresence>
         {activeItem ? (
           <SmoothMotion.div
-            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1 }}
-            className="pointer-events-none absolute inset-0 z-10 bg-smooth-1000/10 bg-blend-luminosity backdrop-blur-xl"
-            exit={shouldReduceMotion ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0 }}
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-          />
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1 }}
+              className="pointer-events-auto absolute inset-0 z-50 bg-smooth-1000/10 bg-blend-luminosity backdrop-blur-xl"
+              exit={shouldReduceMotion ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0 }}
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+            />
         ) : null}
       </AnimatePresence>
 
       <AnimatePresence>
         {activeItem ? (
-          <div className="group absolute inset-0 z-10 grid place-items-center">
+          <div className="group absolute inset-0 z-50 grid place-items-center">
             <SmoothMotion.div
-              className="flex h-fit w-[90%] max-w-2xl cursor-pointer select-none flex-col items-start gap-4 overflow-hidden border bg-background p-4 shadow-xs"
+              className="flex h-fit w-[90%] max-w-2xl cursor-pointer select-none flex-col items-start gap-4 overflow-hidden border bg-background p-4 shadow-xs text-black"
               layoutId={shouldReduceMotion ? undefined : `workItem-${activeItem.company}`}
               ref={ref}
               style={{
@@ -106,7 +107,7 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
                       <div className="font-medium text-foreground text-sm">{activeItem.company}</div>
                     </div>
 
-                    <p className="text-primary-foreground text-sm">
+                    <p className="text-primary-foreground text-sm text-black">
                       {activeItem.title} / {activeItem.salary}
                     </p>
 
@@ -120,9 +121,15 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
                 </div>
               </div>
 
+              {activeItem.photos && activeItem.photos.length > 0 && (
+                <div className="w-full mt-4">
+                  <Phototab tabs={activeItem.photos} height={200} />
+                </div>
+              )}
+
               <SmoothMotion.p
                 animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1 }}
-                className="text-primary-foreground text-sm"
+                className="text-primary-foreground text-sm text-black"
                 exit={shouldReduceMotion ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0 }}
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.215, 0.61, 0.355, 1], delay: 0.05 }}

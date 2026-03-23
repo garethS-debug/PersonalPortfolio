@@ -10,6 +10,13 @@ const TursoJob = {
   location: 'Remote',
   remote: 'Yes',
   job_time: 'Full-time',
+  photos: [
+    {
+      name: 'Console',
+      icon: <Turso className="w-6 h-6" />,
+      image: 'https://via.placeholder.com/800x500?text=Turso+Console',
+    },
+  ],
 };
 
 export default TursoJob;

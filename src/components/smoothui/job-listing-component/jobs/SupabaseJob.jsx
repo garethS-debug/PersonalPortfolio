@@ -10,6 +10,13 @@ const SupabaseJob = {
   location: 'Remote',
   remote: 'Yes',
   job_time: 'Full-time',
+  photos: [
+    {
+      name: 'Docs',
+      icon: <Supabase className="w-6 h-6" />,
+      image: 'https://via.placeholder.com/800x500?text=Supabase+Docs',
+    },
+  ],
 };
 
 export default SupabaseJob;
