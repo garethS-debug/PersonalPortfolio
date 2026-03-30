@@ -12,6 +12,15 @@ export const Resend = (props) => (
   </svg>
 );
 
+export const SpatialAudio = (props) => (
+  <svg fill="none" height="1em" viewBox="0 0 600 600" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <title>Spatial Audio logo</title>
+    
+    <path d="M300 50C161.803 50 50 161.803 50 300C50 438.197 161.803 550 300 550C438.197 550 550 438.197 550 300C550 161.803 438.197 50 300 50ZM300 500C190.954 500 100 409.046 100 300C100 190.954 190.954 100 300 100C409.046 100 500 190.954 500 300C500 409.046 409.046 500 300 500Z" fill="currentColor" />
+    <path d="M300 150C229.441 150 170 209.441 170 280C170 350.559 229.441 410 300 410C370.559 410 430 350.559 430 280C430 209.441 370.559 150 300 150ZM300 380C246.393 380 200 333.607 200 280C200 226.393 246.393 180 300 180C353.607 180 400 226.393 400 280C400 333.607 353.607 380 300 380Z" fill="currentColor" />
+  </svg>
+);
+
 export const Turso = (props) => (
   <svg fill="none" height="1em" viewBox="0 0 201 170" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
     <title>Turso logo</title>
@@ -55,6 +64,13 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    // Force dark mode for the job listing cards by adding the `dark` class
+    // to the document element so Tailwind dark variants apply by default.
+    document.documentElement.classList.add('dark');
+    return () => document.documentElement.classList.remove('dark');
   }, []);
 
   return (
@@ -104,14 +120,14 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
                 <div className="flex min-w-0 grow items-center justify-between">
                   <div className="flex min-w-0 flex-col gap-0.5">
                     <div className="flex w-full flex-row justify-between gap-0.5">
-                      <div className="font-medium text-foreground text-sm">{activeItem.company}</div>
+                      <div className="font-semibold text-white text-lg sm:text-2xl">{activeItem.company}</div>
                     </div>
 
-                    <p className="text-primary-foreground text-sm text-black">
+                    <p className="text-white/90 text-sm">
                       {activeItem.title} / {activeItem.salary}
                     </p>
 
-                    <div className="flex min-w-0 flex-row flex-wrap gap-2 text-primary-foreground text-xs">
+                    <div className="flex min-w-0 flex-row flex-wrap gap-2 text-white/80 text-xs">
                       {activeItem.remote === "Yes" && ` ${activeItem.location} `}
                       {activeItem.remote === "No" && ` ${activeItem.location} `}
                       {activeItem.remote === "Hybrid" && ` ${activeItem.remote} / ${activeItem.location} `}
@@ -129,7 +145,7 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
 
               <SmoothMotion.p
                 animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1 }}
-                className="text-primary-foreground text-sm text-black"
+                className="text-white/90 text-sm"
                 exit={shouldReduceMotion ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0 }}
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2, ease: [0.215, 0.61, 0.355, 1], delay: 0.05 }}

@@ -8,9 +8,11 @@ import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
 import JobListingComponent from "./smoothui/job-listing-component/JonListingComponent";
 import ResendJob from "./smoothui/job-listing-component/jobs/ResendJob.jsx";
 import TursoJob from "./smoothui/job-listing-component/jobs/TursoJob.jsx";
+import SpatialAudioJob from "./smoothui/job-listing-component/jobs/SpatialAudio.jsx";
+import ExCompJob from "./smoothui/job-listing-component/jobs/ExComp.jsx";
 import SupabaseJob from "./smoothui/job-listing-component/jobs/SupabaseJob.jsx";
 
-const jobs = [ResendJob, TursoJob, SupabaseJob];
+const jobs = [SpatialAudioJob, ExCompJob];
 
 
 

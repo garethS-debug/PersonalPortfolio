@@ -1,3 +1,3 @@
-import { Resend, Turso, Supabase } from './JonListingComponent';
+import { Resend, Turso, Supabase, SpatialAudio } from './JonListingComponent';
 
-export { Resend, Turso, Supabase };
+export { Resend, Turso, Supabase, SpatialAudio };

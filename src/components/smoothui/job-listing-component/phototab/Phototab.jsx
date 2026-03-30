@@ -17,12 +17,14 @@ export default function Phototab({
   tabListClassName = "",
   tabTriggerClassName = "",
   imageClassName = "",
+  onLightboxClose,
 }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [bgStyle, setBgStyle] = useState(null);
   const triggersRef = useRef([]);
   const listRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
+  const [lightbox, setLightbox] = useState(null);
 
   useEffect(() => {
     if (
@@ -45,9 +47,18 @@ export default function Phototab({
     }
   }, [hoveredIndex]);
 
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key === "Escape") setLightbox(null);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   if (!tabs || !tabs.length) return null;
 
   return (
+    <>
     <TabsRoot
       className={`group relative w-full overflow-hidden ${className}`}
       defaultValue={defaultTab || (tabs[0]?.name ?? "")}
@@ -95,7 +106,11 @@ export default function Phototab({
             value={tab.name}
           >
             <span className="relative z-10 rounded-full focus:outline-none">
-              {tab.icon}
+              {tab.image ? (
+                <img src={tab.image} alt={tab.name} className="w-6 h-6 rounded-full object-cover" />
+              ) : (
+                tab.icon
+              )}
               <span className="sr-only">{tab.name}</span>
             </span>
           </TabsTrigger>
@@ -106,14 +121,42 @@ export default function Phototab({
         <TabsContent className="h-full w-full" key={tab.name} value={tab.name}>
           <img
             alt={tab.name}
-            className={`h-full w-full rounded-2xl bg-primary object-cover ${imageClassName}`}
+            className={`h-full w-full rounded-2xl bg-primary object-cover cursor-pointer ${imageClassName}`}
             height={height}
             loading="lazy"
             src={tab.image}
             width={400}
+            onClick={() => setLightbox(tab)}
           />
         </TabsContent>
       ))}
     </TabsRoot>
+
+      <AnimatePresence>
+        {lightbox && (
+          <SmoothMotion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightbox(null)}
+          >
+            <div className="max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={lightbox.image}
+                alt={lightbox.name}
+                className="max-h-[80vh] max-w-full object-contain rounded-lg cursor-pointer"
+                onClick={() => {
+                  setLightbox(null);
+                }}
+              />
+              {lightbox.caption && (
+                <div className="mt-3 text-sm text-white/90 text-center">{lightbox.caption}</div>
+              )}
+            </div>
+          </SmoothMotion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

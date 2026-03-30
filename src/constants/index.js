@@ -154,7 +154,8 @@ import Leaderboard from '../components/projects/Leaderboard';
 import MathMagicians from '../components/projects/MathMagicians';
 import MovieMetro from '../components/projects/MovieMetro';
 import NyeusiFest from '../components/projects/NyeusiFest';
+import ExComp from '../components/projects/ExComp';
 
-const projects = [KomiKult, Leaderboard, MathMagicians, MovieMetro, NyeusiFest];
+const projects = [KomiKult, Leaderboard, MathMagicians, MovieMetro, NyeusiFest, ExComp];
 
 export { services, technologies, experiences, projects };
