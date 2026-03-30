@@ -68,7 +68,7 @@ export default function Phototab({
     >
       <TabsList
         aria-label="Phototab Tabs"
-        className={`absolute right-0 bottom-2 left-0 mx-auto flex w-40 -translate-y-10 flex-row items-center justify-between rounded-full bg-primary/40 px-3 py-2 font-medium text-sm ring ring-border/70 backdrop-blur-sm transition hover:text-foreground md:translate-y-20 md:group-hover:translate-y-0 ${tabListClassName}`}
+        className={`absolute right-0 bottom-2 left-0 mx-auto flex w-fit max-w-[calc(100%-1rem)] -translate-y-10 flex-row items-center gap-1 justify-center rounded-full bg-primary/40 px-3 py-2 font-medium text-sm ring ring-border/70 backdrop-blur-sm transition hover:text-foreground md:translate-y-20 md:group-hover:translate-y-0 ${tabListClassName}`}
         ref={listRef}
         style={{ pointerEvents: "auto" }}
       >
