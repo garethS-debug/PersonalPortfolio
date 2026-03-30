@@ -5,17 +5,17 @@ import excompImg from '../resources/excomp/ExperienceComposer.PNG';
 // import spatialImg2 from '../resources/spatialAudio/Yolo2.png';
 // import spatialImg3 from '../resources/spatialAudio/Yolo3.png';
 
-const SpatialAudioJob = {
-  company: 'ExComp',
-  title: 'Experience Composer — interactive experience builder and preview tool',
-  logo: <img src={excompIcon} alt="ExComp" className="w-10 h-10" />,
+const ExCompJob = {
+  company: 'Experience Composer',
+  title: 'Experience Composer — interactive experience builder tool',
+  logo: <img src={excompIcon} alt="Experience Composer" className="w-10 h-10" />,
   job_description:
-      'In this project I was tasked with creating a low cost way to implement spatialised audio in interior cabbings, using existing hardware. I started prototyping with single camera video and using Yolo to track the positon of points of interest (cars, trees, buildings ect.) then using those to build primitives in a Unity scene that would emmit their own sounds, generating a soundscape that emulates an outside experience. '
+      'In this project I was responsible for building an interactive orchestration builder for non-technical users to create interactive experiences. I built a React web app that allowed users to create and connect nodes representing different states within a wider FSM. The tool featured a drag-and-drop interface for building experience graphs, real-time preview of interactions, and integration with a physical simulator.'
    ,
   salary: '',
   location: 'Bentley Motors',
   remote: 'Yes',
-  job_time: 'Unity, C#, Yolo, Wwise',
+  job_time: 'React, Node.js, HTML, CSS',
   photos: [
     {
       name: 'Console',
@@ -38,4 +38,4 @@ const SpatialAudioJob = {
   ],
 };
 
-export default SpatialAudioJob;
+export default ExCompJob;

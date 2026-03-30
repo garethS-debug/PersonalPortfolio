@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from 'react-dom';
 import {
   Content as TabsContent,
   List as TabsList,
@@ -132,31 +133,36 @@ export default function Phototab({
       ))}
     </TabsRoot>
 
-      <AnimatePresence>
-        {lightbox && (
-          <SmoothMotion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setLightbox(null)}
-          >
-            <div className="max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
-              <img
-                src={lightbox.image}
-                alt={lightbox.name}
-                className="max-h-[80vh] max-w-full object-contain rounded-lg cursor-pointer"
-                onClick={() => {
-                  setLightbox(null);
-                }}
-              />
-              {lightbox.caption && (
-                <div className="mt-3 text-sm text-white/90 text-center">{lightbox.caption}</div>
-              )}
-            </div>
-          </SmoothMotion.div>
+      
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {lightbox && (
+              <SmoothMotion.div
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setLightbox(null)}
+              >
+                <div className="max-h-[96vh] max-w-[96vw]" onClick={(e) => e.stopPropagation()}>
+                  <img
+                    src={lightbox.image}
+                    alt={lightbox.name}
+                    className="max-h-[96vh] max-w-[96vw] object-contain rounded-lg cursor-pointer"
+                    onClick={() => {
+                      setLightbox(null);
+                    }}
+                  />
+                  {lightbox.caption && (
+                    <div className="mt-3 text-sm text-white/90 text-center">{lightbox.caption}</div>
+                  )}
+                </div>
+              </SmoothMotion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 }
