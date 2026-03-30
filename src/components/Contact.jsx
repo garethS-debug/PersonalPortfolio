@@ -15,6 +15,7 @@ const Contact = () => {
     botcheck: '',
   });
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,8 +50,10 @@ const Contact = () => {
       setLoading(false);
 
       if (json && json.success) {
-        alert('Thank you. I will get back to you as soon as possible.');
+        setSent(true);
         setForm({ name: '', email: '', message: '', botcheck: '' });
+        // reset sent state after a short delay so user can see confirmation
+        setTimeout(() => setSent(false), 5000);
       } else {
         console.error('Web3Forms error', json);
         alert('Something went wrong. Please try again.');
@@ -134,27 +137,39 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="live-demo flex justify-center sm:gap-4 
+            disabled={loading || sent}
+            className={`live-demo flex justify-center sm:gap-4 
             gap-3 sm:text-[20px] text-[16px] text-timberWolf 
             font-bold font-beckman items-center py-5
             whitespace-nowrap sm:w-[130px] sm:h-[50px] 
-            w-[100px] h-[45px] rounded-[10px] bg-night 
-            hover:bg-battleGray hover:text-eerieBlack 
-            transition duration-[0.2s] ease-in-out"
+            w-[100px] h-[45px] rounded-[10px] transition duration-[0.2s] ease-in-out ${
+              sent ? 'bg-emerald-500 text-white' : 'bg-night hover:bg-battleGray hover:text-eerieBlack'
+            }`}
             onMouseOver={() => {
-              if (sendImgRef.current) sendImgRef.current.src = sendHover;
+              if (!sent && sendImgRef.current) sendImgRef.current.src = sendHover;
             }}
             onMouseOut={() => {
-              if (sendImgRef.current) sendImgRef.current.src = send;
+              if (!sent && sendImgRef.current) sendImgRef.current.src = send;
             }}>
-            {loading ? 'Sending' : 'Send'}
-            <img
-              src={send}
-              alt="send"
-              ref={sendImgRef}
-              className="contact-btn sm:w-[26px] sm:h-[26px] 
-              w-[23px] h-[23px] object-contain"
-            />
+            {sent ? (
+              <>
+                <span className="mr-2">Sent</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.364 7.364a1 1 0 01-1.414 0L3.293 9.707a1 1 0 011.414-1.414L8 11.586l6.293-6.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </>
+            ) : (
+              <>
+                {loading ? 'Sending' : 'Send'}
+                <img
+                  src={send}
+                  alt="send"
+                  ref={sendImgRef}
+                  className="contact-btn sm:w-[26px] sm:h-[26px] 
+                  w-[23px] h-[23px] object-contain ml-2"
+                />
+              </>
+            )}
           </button>
         </form>
       </motion.div>
