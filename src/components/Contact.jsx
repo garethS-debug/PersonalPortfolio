@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
@@ -8,10 +7,12 @@ import { send, sendHover } from '../assets';
 
 const Contact = () => {
   const formRef = useRef();
+  const sendImgRef = useRef();
   const [form, setForm] = useState({
     name: '',
     email: '',
     message: '',
+    botcheck: '',
   });
   const [loading, setLoading] = useState(false);
 
@@ -21,42 +22,44 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    // simple honeypot check
+    if (form.botcheck) return;
+
     setLoading(true);
 
-    // sign up on emailjs.com (select the gmail service and connect your account).
-    //click on create a new template then click on save.
-    emailjs
-      .send(
-        'serviceID', // paste your ServiceID here (you'll get one when your service is created).
-        'templateID', // paste your TemplateID here (you'll find it under email templates).
-        {
-          from_name: form.name,
-          to_name: 'YourName', // put your name here.
-          from_email: form.email,
-          to_email: 'youremail@gmail.com', //put your email here.
-          message: form.message,
-        },
-        'yourpublickey' //paste your Public Key here. You'll get it in your profile section.
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert('Thank you. I will get back to you as soon as possible.');
+    // Web3Forms integration — uses an access key stored in Vite env: VITE_WEB3FORMS_ACCESS_KEY
+    const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'your_access_key';
 
-          setForm({
-            name: '',
-            email: '',
-            message: '',
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error);
-          alert('Something went wrong. Please try again.');
-        }
-      );
+    try {
+      const formData = new FormData();
+      formData.append('access_key', ACCESS_KEY);
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('message', form.message);
+      formData.append('subject', `New contact from ${form.name}`);
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const json = await res.json();
+      setLoading(false);
+
+      if (json && json.success) {
+        alert('Thank you. I will get back to you as soon as possible.');
+        setForm({ name: '', email: '', message: '', botcheck: '' });
+      } else {
+        console.error('Web3Forms error', json);
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+      alert('Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -72,7 +75,18 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-10 flex flex-col gap-6 font-poppins">
+          className="mt-10 flex flex-col gap-6 font-poppins"
+          >
+          {/* Honeypot for spam bots (hidden) */}
+          <input
+            type="text"
+            name="botcheck"
+            value={form.botcheck}
+            onChange={handleChange}
+            className="hidden"
+            style={{ display: 'none' }}
+            autoComplete="off"
+          />
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Name</span>
             <input
@@ -128,17 +142,16 @@ const Contact = () => {
             hover:bg-battleGray hover:text-eerieBlack 
             transition duration-[0.2s] ease-in-out"
             onMouseOver={() => {
-              document
-                .querySelector('.contact-btn')
-                .setAttribute('src', sendHover);
+              if (sendImgRef.current) sendImgRef.current.src = sendHover;
             }}
             onMouseOut={() => {
-              document.querySelector('.contact-btn').setAttribute('src', send);
+              if (sendImgRef.current) sendImgRef.current.src = send;
             }}>
             {loading ? 'Sending' : 'Send'}
             <img
               src={send}
               alt="send"
+              ref={sendImgRef}
               className="contact-btn sm:w-[26px] sm:h-[26px] 
               w-[23px] h-[23px] object-contain"
             />
