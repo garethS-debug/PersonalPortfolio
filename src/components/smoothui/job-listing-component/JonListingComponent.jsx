@@ -187,11 +187,11 @@ export default function JobListingComponent({ jobs, className, onJobClick }) {
 
               <div className="flex w-full flex-col items-start justify-between gap-0.5">
                 <div className="font-medium text-foreground">{role.company}</div>
-                <div className="text-primary-foreground text-xs">
+                <div className="text-white/80 text-xs">
                   {role.title} / {role.salary}
                 </div>
 
-                <div className="flex min-w-0 flex-row flex-wrap gap-2 text-primary-foreground text-xs">
+                <div className="flex min-w-0 flex-row flex-wrap gap-2 text-white/80 text-xs">
                   {role.remote === "Yes" && ` ${role.location} `}
                   {role.remote === "No" && ` ${role.location} `}
                   {role.remote === "Hybrid" && ` ${role.remote} / ${role.location} `}

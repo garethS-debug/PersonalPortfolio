@@ -8,6 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { download, downloadHover, resume } from '../assets';
+import resumePdf from '../assets/resume/Gareth Swarte CV.pdf';
 import * as assets from '../assets';
 import { textVariant } from '../utils/motion';
 import FilesDemo from './filesystem/FilesDemo';
@@ -98,7 +99,11 @@ const Experience = () => {
                 />
               </div>
             }>
-            <button
+            {/* Place a PDF named `resume.pdf` in the project's `public/` folder
+                so this link will download the file. */}
+            <a
+              href={resumePdf}
+              download="Gareth-Swarte-CV.pdf"
               className="live-demo flex justify-between 
               sm:text-[18px] text-[14px] text-timberWolf 
               font-bold font-beckman items-center py-5 pl-3 pr-3 
@@ -107,22 +112,15 @@ const Experience = () => {
               sm:mt-[22px] mt-[16px] hover:bg-battleGray 
               hover:text-eerieBlack transition duration-[0.2s] 
               ease-in-out"
-              onClick={() =>
-                window.open(
-                  'resume link', //paste the link to your resume here
-                  '_blank'
-                )
-              }
               onMouseOver={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', downloadHover);
+                const el = document.querySelector('.download-btn');
+                if (el) el.setAttribute('src', downloadHover);
               }}
               onMouseOut={() => {
-                document
-                  .querySelector('.download-btn')
-                  .setAttribute('src', download);
-              }}>
+                const el = document.querySelector('.download-btn');
+                if (el) el.setAttribute('src', download);
+              }}
+            >
               MY RESUME
               <img
                 src={download}
@@ -130,7 +128,7 @@ const Experience = () => {
                 className="download-btn sm:w-[26px] sm:h-[26px] 
                 w-[23px] h-[23px] object-contain"
               />
-            </button>
+            </a>
           </VerticalTimelineElement>
         </VerticalTimeline>
    

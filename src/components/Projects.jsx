@@ -12,7 +12,8 @@ import SpatialAudioJob from "./smoothui/job-listing-component/jobs/SpatialAudio.
 import ExCompJob from "./smoothui/job-listing-component/jobs/ExComp.jsx";
 import SupabaseJob from "./smoothui/job-listing-component/jobs/SupabaseJob.jsx";
 import HMIJob from "./smoothui/job-listing-component/jobs/HMI.jsx";
-const jobs = [SpatialAudioJob, ExCompJob, HMIJob];
+import UnityDevJob from "./smoothui/job-listing-component/jobs/UnityDevelopment.jsx";
+const jobs = [SpatialAudioJob, ExCompJob, HMIJob, UnityDevJob];
 
 
 
@@ -80,7 +81,7 @@ const ProjectCard = ({
               {name}
             </h2>
             <p
-              className="text-silver sm:text-[14px] text-[12px] 
+              className="text-white/90 sm:text-[14px] text-[12px] 
               max-w-3xl sm:leading-[24px] leading-[18px]
               font-poppins tracking-[1px]">
               {description}
