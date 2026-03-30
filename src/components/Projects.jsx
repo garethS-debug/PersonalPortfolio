@@ -8,9 +8,12 @@ import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
 import JobListingComponent from "./smoothui/job-listing-component/JonListingComponent";
 import ResendJob from "./smoothui/job-listing-component/jobs/ResendJob.jsx";
 import TursoJob from "./smoothui/job-listing-component/jobs/TursoJob.jsx";
+import SpatialAudioJob from "./smoothui/job-listing-component/jobs/SpatialAudio.jsx";
+import ExCompJob from "./smoothui/job-listing-component/jobs/ExComp.jsx";
 import SupabaseJob from "./smoothui/job-listing-component/jobs/SupabaseJob.jsx";
-
-const jobs = [ResendJob, TursoJob, SupabaseJob];
+import HMIJob from "./smoothui/job-listing-component/jobs/HMI.jsx";
+import UnityDevJob from "./smoothui/job-listing-component/jobs/UnityDevelopment.jsx";
+const jobs = [SpatialAudioJob, ExCompJob, HMIJob, UnityDevJob];
 
 
 
@@ -31,7 +34,7 @@ const ProjectCard = ({
       className={`relative ${
         active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
       } flex items-center justify-center min-w-[170px] 
-      h-[420px] cursor-pointer card-shadow`}
+      ${active === id ? 'h-[700px]' : 'h-[420px]'} cursor-pointer card-shadow`}
       onClick={() => handleClick(id)}>
       <div
         className="absolute top-0 left-0 z-10 bg-jetLight 
@@ -78,7 +81,7 @@ const ProjectCard = ({
               {name}
             </h2>
             <p
-              className="text-silver sm:text-[14px] text-[12px] 
+              className="text-white/90 sm:text-[14px] text-[12px] 
               max-w-3xl sm:leading-[24px] leading-[18px]
               font-poppins tracking-[1px]">
               {description}
@@ -124,8 +127,8 @@ const Projects = () => {
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Case Studies</p>
-        <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
+        <p className={`${styles.sectionSubText} `}>Projects</p>
+        <h2 className={`${styles.sectionHeadTextLight}`}>Projects I have worked on</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -162,7 +165,7 @@ const Projects = () => {
 
         {/* Job listings */}
         <div className="mt-12 w-full">
-          <h3 className="text-sm text-taupe mb-4">Open Roles</h3>
+          <h3 className="text-sm text-taupe mb-4"></h3>
           <JobListingComponent jobs={jobs} className="mt-4" onJobClick={(j) => console.log('job clicked', j)} />
         </div>
 
