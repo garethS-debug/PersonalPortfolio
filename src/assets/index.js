@@ -37,11 +37,16 @@ import typescript from './tech/typescript.png';
 import graphql from './tech/graphql.png';
 import postgresql from './tech/postgresql.png';
 import rubyrails from './tech/rubyrails.png';
+import csharp from './tech/C_Icon.png';
+import unity from './tech/UnityIcon.png';
 
 import coverhunt from './company/coverhunt.png';
 import dcc from './company/dcc.png';
 import kelhel from './company/kelhel.png';
 import microverse from './company/microverse.png';
+import bentley from './company/bentley.png';
+import natwest from './company/nw.png';
+import headset from './company/head_set.jpg';
 
 import komikult from './projects/komikult.png';
 import leaderboard from './projects/leaderboard.png';
@@ -82,6 +87,8 @@ export {
   nodejs,
   postgresql,
   rubyrails,
+  csharp,
+  unity,
   reactjs,
   redux,
   tailwind,
@@ -96,4 +103,10 @@ export {
   dcc,
   kelhel,
   microverse,
+  bentley,
+  natwest,
+  headset,
+  headset as headsetimmersive,
+  headset as head_set,
+  natwest as nw,
 };

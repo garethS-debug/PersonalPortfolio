@@ -5,6 +5,14 @@ import { styles } from '../styles';
 import { github, pineapple, pineappleHover } from '../assets';
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
+import JobListingComponent from "./smoothui/job-listing-component/JonListingComponent";
+import ResendJob from "./smoothui/job-listing-component/jobs/ResendJob.jsx";
+import TursoJob from "./smoothui/job-listing-component/jobs/TursoJob.jsx";
+import SupabaseJob from "./smoothui/job-listing-component/jobs/SupabaseJob.jsx";
+
+const jobs = [ResendJob, TursoJob, SupabaseJob];
+
+
 
 const ProjectCard = ({
   id,
@@ -138,6 +146,7 @@ const Projects = () => {
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
         className={`${styles.innerWidth} mx-auto flex flex-col`}>
+        {/*
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {projects.map((project, index) => (
             <ProjectCard
@@ -149,8 +158,17 @@ const Projects = () => {
             />
           ))}
         </div>
+        */}
+
+        {/* Job listings */}
+        <div className="mt-12 w-full">
+          <h3 className="text-sm text-taupe mb-4">Open Roles</h3>
+          <JobListingComponent jobs={jobs} className="mt-4" onJobClick={(j) => console.log('job clicked', j)} />
+        </div>
+
       </motion.div>
     </div>
+    
   );
 };
 

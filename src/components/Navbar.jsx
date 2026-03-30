@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { close, menu, logo, logotext } from '../assets';
+import EnterAnimation from './logo/Logo'
+import { motion } from "motion/react"
+import NavBarButton from './navBar/NavBarButton';
 
 const Navbar = () => {
   const [active, setActive] = useState('');
@@ -20,31 +23,41 @@ const Navbar = () => {
             setActive('');
             window.scrollTo(0, 0);
           }}>
-          <img
+          {/* <img
             src={logo} // your logo comes here
             alt="logo"
             className="sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain"
-          />
+          /> */}
 
-          {/* if you have text you want besides your logo it comes here.
-          Otherwise delete this if you don't need it. */}
-          <img
+              
+      <div className="nav-left">
+        <div className="logo"><EnterAnimation /></div>
+      </div>
+
+          {/*text besides logo */}
+          {/* <img
             src={logotext}
             alt="logo"
             className="sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain"
-          />
+          /> */}
         </Link>
         <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
           {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? 'text-french' : 'text-eerieBlack'
-              } hover:text-taupe text-[21px] font-medium font-mova 
-                uppercase tracking-[3px] cursor-pointer nav-links`}
-              onClick={() => setActive(nav.title)}>
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            </li>
+            // <li
+            //   key={nav.id}
+            //   className={`${
+            //     active === nav.title ? 'text-french' : 'text-eerieBlack'
+            //   } hover:text-taupe text-[21px] font-medium font-mova 
+            //     uppercase tracking-[3px] cursor-pointer nav-links`}
+            //   onClick={() => setActive(nav.title)}>
+            //   <a href={`#${nav.id}`}>{nav.title}</a>
+            // </li>
+             <NavBarButton
+    key={nav.id}
+    nav={nav}
+    active={active}
+    onActivate={(n) => setActive(n.title)}
+  />
           ))}
         </ul>
 
@@ -67,6 +80,8 @@ const Navbar = () => {
               <ul
                 className="list-none flex flex-col -gap-[1rem] 
                 items-start justify-end mt-[10rem] -ml-[35px]">
+                {/** original mobile list */}
+                {/**
                 {navLinks.map((nav) => (
                   <li
                     id={nav.id}
@@ -81,6 +96,20 @@ const Navbar = () => {
                     }}>
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   </li>
+                ))}
+                */}
+
+                {navLinks.map((nav) => (
+                  <NavBarButton
+                    key={nav.id}
+                    nav={nav}
+                    active={active}
+                    onActivate={(n) => {
+                      setToggle(!toggle);
+                      setActive(n.title);
+                    }}
+                    className="text-[48px] sm:text-[88px] font-bold font-arenq uppercase tracking-[1px] py-2"
+                  />
                 ))}
               </ul>
             </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -5,10 +6,14 @@ import {
 import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
-import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { download, downloadHover, resume } from '../assets';
+import * as assets from '../assets';
 import { textVariant } from '../utils/motion';
+import FilesDemo from './filesystem/FilesDemo';
+import { Files } from 'lucide-react';
+import experiencesJson from '../data/experiences.json';
+
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -32,7 +37,7 @@ const ExperienceCard = ({ experience }) => (
     icon={
       <div className="flex justify-center items-center w-full h-full">
         <img
-          src={experience.icon}
+          src={assets[experience.icon] || resume}
           alt={experience.company_name}
           className="w-[60%] h-[60%] object-contain"
         />
@@ -52,6 +57,9 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const Experience = () => {
+  // Load experiences directly from JSON data (no input UI)
+  const experiences = experiencesJson;
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -62,7 +70,6 @@ const Experience = () => {
           Work Experience.
         </h2>
       </motion.div>
-
       <div className="mt-20 flex flex-col">
         <VerticalTimeline className="vertical-timeline-custom-line">
           {experiences.map((experience, index) => (
@@ -126,6 +133,8 @@ const Experience = () => {
             </button>
           </VerticalTimelineElement>
         </VerticalTimeline>
+   
+        
       </div>
     </>
   );

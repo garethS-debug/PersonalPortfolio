@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Senior Software Developer",
+    "company_name": "Bentley Motors",
+    "icon": "bentley",
+    "iconBg": "#333333",
+    "date": "Nov 2023 - Present"
+  },
+  {
+    "title": "Unity Developer",
+    "company_name": "Bentley Motors",
+    "icon": "bentley",
+    "iconBg": "#333333",
+    "date": "Nov 2022 - Nov 2023"
+  },
+  {
+    "title": "Unity Developer",
+    "company_name": "Head Set Immersive",
+    "icon": "head_set",
+    "iconBg": "#333333",
+    "date": "Jan 2022 - Nov 2022"
+  },
+  {
+    "title": "Freelance Developer",
+    "company_name": "Self-Employed",
+    "icon": "freelance",
+    "iconBg": "#333333",
+    "date": "Dec 2019 - Jan 2022"
+  },
+    {
+    "title": "Operations Analyst (Subject Matter Expert)",
+    "company_name": "NatWest Group",
+    "icon": "natwest",
+    "iconBg": "#333333",
+    "date": "2016 - Dec 2021"
+  },
+  {
+    "title": "Case Officer",
+    "company_name": "NatWest Group",
+    "icon": "nw",
+    "iconBg": "#333333",
+    "date": "2014 - 2016"
+  }
+
+
+]
