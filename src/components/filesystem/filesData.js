@@ -19,34 +19,34 @@ const filesData = [
     name: 'Interactive UX Demonstration Control Tools',
     techs: ['Unity', 'C#', 'Python', 'Node-RED', 'Node.js', 'Arduino', 'Raspberry Pi', 'Git'],
   },
-  {
-    name: 'UX Team VR Lab',
-    techs: ['Unity', 'C#', 'Blender'],
-  },
+  // {
+  //   name: 'UX Team VR Lab',
+  //   techs: ['Unity', 'C#', 'Blender'],
+  // },
   {
     name: 'Automotive HMI Components',
-    techs: ['Unity', 'C#'],
+    techs: ['Fusion 360'],
   },
-  {
-    name: 'UX Simulator Software / Hardware Architecture Projects',
-    techs: ['Unity', 'Unreal', 'C#', 'Python', 'Arduino', 'Raspberry Pi', 'Git', 'Autodesk Fusion'],
-  },
+  // {
+  //   name: 'UX Simulator Software / Hardware Architecture Projects',
+  //   techs: ['Unity', 'Unreal', 'C#', 'Python', 'Arduino', 'Raspberry Pi', 'Git', 'Autodesk Fusion'],
+  // },
   {
     name: 'HEFAT Multiplayer VR Training Systems',
     techs: ['Unity', 'C#', 'Photon PUN', 'OpenXR / XR ITK', 'URP', 'Blender'],
   },
   {
-    name: 'REST API User Management Layer',
+    name: 'rest API User Management',
     techs: ['Unity', 'C#', 'REST APIs'],
   },
   {
     name: 'HEFAT Training Course',
     techs: ['Unity', 'C#', 'Blender', 'Bitbucket'],
   },
-  {
-    name: 'Unity in Industry Playable Demo',
-    techs: ['Unity', 'C#', 'Photon PUN 2', 'PlayFab', 'GitHub'],
-  },
+  // {
+  //   name: 'Unity in Industry Playable Demo',
+  //   techs: ['Unity', 'C#', 'Photon PUN 2', 'PlayFab', 'GitHub'],
+  // },
   {
     name: 'Multiplayer Networking Framework for 8 Players',
     techs: ['Unity', 'C#', 'Photon PUN 2', 'PlayFab'],
