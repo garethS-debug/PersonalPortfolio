@@ -6,6 +6,7 @@ import { github, pineapple, pineappleHover } from '../assets';
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
 import JobListingComponent from "./smoothui/job-listing-component/JonListingComponent";
+import DotMorphButton from "./smoothui/dot-morph-button/DotMorphButton";
 import ResendJob from "./smoothui/job-listing-component/jobs/ResendJob.jsx";
 import TursoJob from "./smoothui/job-listing-component/jobs/TursoJob.jsx";
 import SpatialAudioJob from "./smoothui/job-listing-component/jobs/SpatialAudio.jsx";
@@ -141,6 +142,10 @@ const Projects = () => {
           intricate challenges, adapt to various technologies, and efficiently
           oversee projects.
         </motion.p>
+      </div>
+
+      <div className="mt-8 flex justify-start">
+        <DotMorphButton label="Explore My Work" onClick={() => window.open("https://github.com/garethS-debug", "_blank", "noopener,noreferrer")} />
       </div>
 
       <motion.div
