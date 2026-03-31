@@ -39,6 +39,9 @@ import postgresql from './tech/postgresql.png';
 import rubyrails from './tech/rubyrails.png';
 import csharp from './tech/C_Icon.png';
 import unity from './tech/UnityIcon.png';
+import blenderbw from './techLogos/blenderbw.png';
+import HTML5_Black from './techLogos/HTML5_Black.png';
+import python from './techLogos/python.png';
 
 import coverhunt from './company/coverhunt.png';
 import dcc from './company/dcc.png';
@@ -87,6 +90,9 @@ export {
   nodejs,
   postgresql,
   rubyrails,
+  blenderbw,
+  HTML5_Black,
+  python,
   csharp,
   unity,
   reactjs,

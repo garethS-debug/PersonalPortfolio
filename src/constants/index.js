@@ -18,6 +18,9 @@ import {
   docker,
   postgresql,
   rubyrails,
+  blenderbw,
+  HTML5_Black,
+  python,
   graphql,
   coverhunt,
   dcc,
@@ -82,7 +85,7 @@ const technologies = [
   },
   {
     name: 'Redux Toolkit',
-    icon: redux,
+    icon: blenderbw,
   },
   {
     name: 'Tailwind CSS',
@@ -94,11 +97,11 @@ const technologies = [
   },
   {
     name: 'Rails',
-    icon: rubyrails,
+    icon: HTML5_Black,
   },
   {
     name: 'graphql',
-    icon: graphql,
+    icon: python,
   },
   {
     name: 'postgresql',
